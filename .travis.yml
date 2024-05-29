@@ -10,7 +10,8 @@ before_script:
 script:
     - docker --version
     - docker build -t test-travis .
-    - docker tag test-travis namnguyen1997/test-travis:latest
+    - docker tag test-travis namnguyen1997/test-travis
 after_success:
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     - docker push namnguyen1997/test-travis
+    
